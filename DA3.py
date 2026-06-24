@@ -7,7 +7,7 @@ from mlxtend.preprocessing import TransactionEncoder
 from mlxtend.frequent_patterns import apriori, association_rules
 
 # Load your data and clean it
-data = pd.read_csv("C:/Users/dk103/Documents/Market_Basket_Optimisation DA .csv")
+data = pd.read_csv("data/Market_Basket_Optimisation_DA.csv")
 data = data.apply(lambda x: x.str.strip() if x.dtype == "object" else x)
 data = data.replace(';', '', regex=True)
 
