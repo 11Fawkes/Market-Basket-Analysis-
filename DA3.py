@@ -7,9 +7,8 @@ from mlxtend.preprocessing import TransactionEncoder
 from mlxtend.frequent_patterns import apriori, association_rules
 
 # Load your data and clean it
-data = pd.read_csv("data/Market_Basket_Optimisation_DA.csv")
+data = pd.read_csv("data/Market_Basket_Optimisation_DA.csv", sep=";")
 data = data.apply(lambda x: x.str.strip() if x.dtype == "object" else x)
-data = data.replace(';', '', regex=True)
 
 # Function for First Choices Bar Plot
 def visualize_first_choices(data):
@@ -51,7 +50,6 @@ def visualize_second_choices(data):
 def apriori_analysis(data):
     # Preprocess data for Apriori
     dataset = data.apply(lambda x: x.str.strip() if x.dtype == "object" else x)
-    dataset = dataset.replace(';', '', regex=True)
 
     # Convert the data to the format required by the mlxtend library
     transactions = []
